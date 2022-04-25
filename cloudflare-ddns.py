@@ -194,8 +194,9 @@ if __name__ == '__main__':
     try:
         with open(CONFIG_PATH + "config.json") as config_file:
             config = json.loads(config_file.read())
-    except:
+    except Exception as e:
         print("😡 Error reading config.json")
+        print(e)
         time.sleep(60) # wait 60 seconds to prevent excessive logging on docker auto restart
 
     if config is not None:
